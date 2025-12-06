@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy định đặt tên vải - Mindmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+        }
+        
+        /* Formula Section - Top */
+        .formula-section {
+            max-width: 100%;
+            margin: 0 auto 25px auto;
+        }
+        
+        .formula-box {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+            border: 2px solid #e94560;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .formula-title {
+            font-size: 18px;
+            color: #e94560;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .formula-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+        
+        .formula-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .f1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .f2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .f3 { background: linear-gradient(135deg, #4facfe, #00f2fe); color: #1a1a2e; }
+        .f4 { background: linear-gradient(135deg, #43e97b, #38f9d7); color: #1a1a2e; }
+        .f5 { background: linear-gradient(135deg, #fa709a, #fee140); color: #1a1a2e; }
+        .f6 { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #1a1a2e; }
+        .f7 { background: linear-gradient(135deg, #ff9a9e, #fecfef); color: #1a1a2e; }
+        .f8 { background: linear-gradient(135deg, #96fbc4, #f9f586); color: #1a1a2e; }
+        .f9 { background: linear-gradient(135deg, #c471f5, #fa71cd); }
+        
+        .plus {
+            color: #e94560;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Table Container */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 25px;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 3px;
+            min-width: 1600px;
+        }
+        
+        .main-table th {
+            padding: 10px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .main-table td {
+            padding: 8px;
+            font-size: 10px;
+            vertical-align: top;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            line-height: 1.4;
+        }
+        
+        .th-0 { background: linear-gradient(135deg, #f9ca24, #f0932b); color: #1a1a2e; width: 18%; }
+        .th-1 { background: linear-gradient(135deg, #667eea, #764ba2); width: 8%; }
+        .th-2 { background: linear-gradient(135deg, #f093fb, #f5576c); width: 10%; }
+        .th-3 { background: linear-gradient(135deg, #4facfe, #00f2fe); color: #1a1a2e; width: 18%; }
+        .th-4 { background: linear-gradient(135deg, #43e97b, #38f9d7); color: #1a1a2e; width: 9%; }
+        .th-5 { background: linear-gradient(135deg, #fa709a, #fee140); color: #1a1a2e; width: 7%; }
+        .th-6 { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #1a1a2e; width: 7%; }
+        .th-7 { background: linear-gradient(135deg, #ff9a9e, #fecfef); color: #1a1a2e; width: 10%; }
+        .th-8 { background: linear-gradient(135deg, #96fbc4, #f9f586); color: #1a1a2e; width: 6%; }
+        .th-9 { background: linear-gradient(135deg, #c471f5, #fa71cd); width: 7%; }
+        
+        /* Row colors */
+        .row-1 td { border-left: 4px solid #667eea; }
+        .row-2 td { border-left: 4px solid #f5576c; }
+        .row-3 td { border-left: 4px solid #4facfe; }
+        .row-4 td { border-left: 4px solid #43e97b; }
+        
+        .fabric-name {
+            font-weight: bold;
+            font-size: 11px;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .row-1 .fabric-name { background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3)); }
+        .row-2 .fabric-name { background: linear-gradient(135deg, rgba(240, 147, 251, 0.3), rgba(245, 87, 108, 0.3)); }
+        .row-3 .fabric-name { background: linear-gradient(135deg, rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3)); }
+        .row-4 .fabric-name { background: linear-gradient(135deg, rgba(67, 233, 123, 0.3), rgba(56, 249, 215, 0.3)); }
+        
+        .item-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .item-list li {
+            padding: 5px 8px;
+            margin: 3px 0;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            font-size: 10px;
+        }
+        
+        .item-list li:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .chapter-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 8px;
+            font-weight: 600;
+            margin-top: 3px;
+        }
+        
+        .empty-cell {
+            color: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .common-value {
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* Example column */
+        .example-cell {
+            background: rgba(249, 202, 36, 0.08) !important;
+            border-left: 4px solid #f9ca24 !important;
+        }
+        
+        .example-item {
+            padding: 8px 10px;
+            margin: 5px 0;
+            background: rgba(249, 202, 36, 0.15);
+            border-radius: 6px;
+            font-size: 10px;
+            line-height: 1.5;
+            border: 1px solid rgba(249, 202, 36, 0.3);
+        }
+        
+        .example-item:hover {
+            background: rgba(249, 202, 36, 0.25);
+        }
+        
+        .example-label {
+            display: inline-block;
+            background: #f9ca24;
+            color: #1a1a2e;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧵 QUY ĐỊNH ĐẶT TÊN VẢI</h1>
+    
+    <!-- Formula Section - TOP -->
+    <div class="formula-section">
+        <div class="formula-box">
+            <div class="formula-title">📋 CÔNG THỨC ĐẶT TÊN VẢI</div>
+            <div class="formula-flow">
+                <span class="formula-item f1">1. Loại vải</span>
+                <span class="plus">+</span>
+                <span class="formula-item f2">2. Mô tả loại vải</span>
+                <span class="plus">+</span>
+                <span class="formula-item f3">3. Thành phần chi tiết</span>
+                <span class="plus">+</span>
+                <span class="formula-item f4">4. Tính chất xử lý</span>
+                <span class="plus">+</span>
+                <span class="formula-item f5">5. Định lượng</span>
+                <span class="plus">+</span>
+                <span class="formula-item f6">6. Khổ vải</span>
+                <span class="plus">+</span>
+                <span class="formula-item f7">7. Tính chất bề mặt</span>
+                <span class="plus">+</span>
+                <span class="formula-item f8">8. Đóng gói</span>
+                <span class="plus">+</span>
+                <span class="formula-item f9">9. Độ mới</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Table -->
+    <div class="table-wrapper">
+        <table class="main-table">
+            <thead>
+                <tr>
+                    <th class="th-0">✅ Ví dụ đặt tên đúng</th>
+                    <th class="th-1">1. Loại vải</th>
+                    <th class="th-2">2. Mô tả loại vải</th>
+                    <th class="th-3">3. Mô tả thành phần chi tiết</th>
+                    <th class="th-4">4. Tính chất xử lý vải</th>
+                    <th class="th-5">5. Định lượng</th>
+                    <th class="th-6">6. Khổ vải</th>
+                    <th class="th-7">7. Tính chất bề mặt</th>
+                    <th class="th-8">8. Đóng gói</th>
+                    <th class="th-9">9. Độ mới</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1: Vải dệt thoi -->
+                <tr class="row-1">
+                    <td class="example-cell">
+                        <div class="example-item">
+                            <span class="example-label">VD 1</span><br>
+                            Vải dệt thoi, thành phần 95% filament polyester dún 5% spandex, định lượng 280±10gsm, khổ vải 1,5±0,05 mét, đã nhuộm, chưa ngâm tẩm, bề mặt chưa tráng phủ hay ép lớp, dạng cuộn, mới 100%
+                        </div>
+                        <div class="example-item">
+                            <span class="example-label">VD 2</span><br>
+                            Vải dệt thoi từ xơ staple tổng hợp, dệt vân điểm, thành phần 80% staple polyester 20% cotton, định lượng 420±10 gsm, khổ vải 1,5±0,05 mét, đã nhuộm, chưa ngâm tẩm, bề mặt chưa tráng phủ hay ép lớp, dạng cuộn, mới 100%
+                        </div>
+                    </td>
+                    <td>
+                        <div class="fabric-name">Vải dệt thoi</div>
+                    </td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Vân điểm</li>
+                            <li>Vân chéo 3 sợi hoặc vân chéo 4 sợi, kể cả vải vân chéo chữ nhân</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Từ sợi len lông cừu hoặc sợi lông động vật loại mịn chải thô/ chải kỹ <span class="chapter-tag">Chương 51</span></li>
+                            <li>Từ bông ( Thành phần cotton ) <span class="chapter-tag">Chương 52</span></li>
+                            <li>Từ sợi lanh; sợi đay hoặc từ các loại xơ libe dệt; sợi dệt gốc thực vật khác; sợi giấy <span class="chapter-tag">Chương 53</span></li>
+                            <li>Từ sợi filament tổng hợp ( Bao gồm : filament bằng ni lông hoặc các polyamit khác; filament polyeste dún; filament polyeste không dún; filament polyeste không phải dún cũng không phải không dún; filament tổng hợp; filament tái tạo) <span class="chapter-tag">Chương 54</span></li>
+                            <li>Từ xơ staple tổng hợp ( Bao gồm : xơ staple polyeste; xơ staple bằng acrylic hoặc modacrylic; xơ staple polyeste tổng hợp pha chủ yếu hoặc pha duy nhất với bông; xơ staple polyeste tổng hợp pha chủ yếu hoặc pha duy nhất với sợi filament nhân tạo; xơ staple tái tạo ) <span class="chapter-tag">Chương 55</span></li>
+                            <li>Vải dệt thoi đặc biệt ( Bao gồm : vải tuyn và các loại vải dệt lưới khác;…. ) <span class="chapter-tag">Chương 58</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Chưa tẩy trắng</li>
+                            <li>Đã tẩy trắng</li>
+                        </ul>
+                    </td>
+                    <td rowspan="4" class="common-value">
+                        <ul class="item-list">
+                            <li style="text-align:center;"><strong>…. ± … gsm</strong></li>
+                        </ul>
+                    </td>
+                    <td rowspan="4" class="common-value">
+                        <ul class="item-list">
+                            <li style="text-align:center;"><strong>…. ± …. Mét</strong></li>
+                        </ul>
+                    </td>
+                    <td rowspan="2">
+                        <ul class="item-list">
+                            <li>Chưa ngâm tẩm, bề mặt chưa tráng, phủ hoặc ép lớp</li>
+                        </ul>
+                    </td>
+                    <td rowspan="4">
+                        <ul class="item-list">
+                            <li>Cuộn</li>
+                            <li>Tấm</li>
+                            <li>Kiện</li>
+                        </ul>
+                    </td>
+                    <td rowspan="4" class="common-value">
+                        <ul class="item-list">
+                            <li style="text-align:center;"><strong>Mới ….%</strong></li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Row 2: Vải dệt kim/móc -->
+                <tr class="row-2">
+                    <td class="example-cell">
+                        <div class="example-item">
+                            <span class="example-label">VD</span><br>
+                            Vải dệt kim đan ngang, thành phần 65% polyeste 35% cotton, định lượng 380±20gsm, khổ vải 0,65±0,05 mét, đã nhuộm, chưa ngâm tẩm, bề mặt chưa tráng phủ hay ép lớp, dạng cuộn, mới 100%
+                        </div>
+                    </td>
+                    <td>
+                        <div class="fabric-name">Vải dệt kim/ móc</div>
+                    </td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Đan ngang</li>
+                            <li>Đan dọc</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Vải có tạo vòng lông, kể cả các loại vải "vòng lông dài" và vải khăn lông, dệt kim hoặc móc <span class="chapter-tag">Chương 60 - Nhóm 6001</span></li>
+                            <li>Vải dệt kim hoặc móc có khổ rộng hơn 30 cm, có tỷ trọng sợi đàn hồi hoặc sợi cao su từ 5% trở lên <span class="chapter-tag">Chương 60 - Nhóm 6004</span></li>
+                            <li>Vải dệt kim đan dọc (kể cả các loại làm trên máy dệt kim dệt dải trang trí) ( Bao gồm : Từ bông; từ xơ tổng hợp; từ xơ tái tạo ) <span class="chapter-tag">Chương 60 - Nhóm 6005</span></li>
+                            <li>Vải dệt kim hoặc đan móc khác ( Bao gồm : Từ lông cừu hoặc lông động vật mịn, từ bông; từ xơ tổng hợp; từ xơ tái tạo ) <span class="chapter-tag">Chương 60 - Nhóm 6006</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Đã nhuộm</li>
+                            <li>Từ các sợi có màu khác nhau</li>
+                            <li>Đã in</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Row 3: Vải dệt -->
+                <tr class="row-3">
+                    <td class="example-cell">
+                        <div class="example-item">
+                            <span class="example-label">VD</span><br>
+                            Vải dệt cấu tạo hai lớp: lớp trên là vải dệt thoi từ 100% filament polyeste dún định lượng 78±10gsm, đã nhuộm; lớp dưới là vải dệt kim đan ngang thành phần 100% polyester, định lượng 160±10gsm, đã nhuộm; định lượng sau ép là 250±10gsm, khổ 1,46±0,05 mét, chưa ngâm tẩm, bề mặt chưa tráng phủ, dạng cuộn, mới 100%
+                        </div>
+                    </td>
+                    <td>
+                        <div class="fabric-name">Vải dệt</div>
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Đã được ngâm tẩm, tráng, phủ hoặc ép với plastic ( Bao gồm: Với poly(vinyl clorua) (PVC) ; Với polyurethan (PU); …. )</li>
+                            <li>Vải cấu tạo 2 hay nhiều lớp - Ghi chi tiết % trọng lượng từng lớp; tính chất, thành phần của từng lớp</li>
+                        </ul>
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td>
+                        <ul class="item-list">
+                            <li>Đã được ngâm tẩm, tráng, phủ hoặc ép với plastic</li>
+                        </ul>
+                    </td>
+                </tr>
+                
+                <!-- Row 4: Vải không dệt -->
+                <tr class="row-4">
+                    <td class="example-cell empty-cell">—</td>
+                    <td>
+                        <div class="fabric-name">Vải không dệt</div>
+                    </td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                    <td class="empty-cell">—</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
